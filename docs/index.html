@@ -69,4 +69,14 @@
     </div>
 <script src="runtime.ff80df26e60d2a17.js" type="module"></script><script src="polyfills.39394df1a461369e.js" type="module"></script><script src="scripts.9f7ec4f5d2bf4e54.js" defer></script><script src="main.4f212e9962a726c4.js" type="module"></script>
 
+<script>
+    (function(){
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
+
 </body></html>
