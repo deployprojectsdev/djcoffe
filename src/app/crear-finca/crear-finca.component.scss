@@ -1,0 +1,106 @@
+.container {
+    margin-top: 2rem;
+
+    .card {
+        border: none;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+        .card-header {
+            background-color: #007bff;
+            border-bottom: none;
+            padding: 0.75rem 1rem;
+
+            .d-flex {
+                .btn-outline-light {
+                    padding: 0.25rem 0.5rem;
+                    font-size: 0.875rem;
+                    border-color: rgba(255, 255, 255, 0.5);
+
+                    &:hover {
+                        background-color: rgba(255, 255, 255, 0.1);
+                    }
+
+                    .bi-arrow-left {
+                        font-size: 0.75rem;
+                        margin-right: 0.25rem;
+                    }
+                }
+
+                .card-title {
+                    color: white;
+                    margin-bottom: 0;
+                    font-size: 1.25rem;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .card-body {
+            padding: 1.5rem;
+
+            .form-label {
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+                color: #495057;
+            }
+
+            .form-control {
+                border-radius: 0.25rem;
+                border-color: #ced4da;
+
+                &:focus {
+                    border-color: #80bdff;
+                    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+                }
+            }
+
+            textarea.form-control {
+                resize: vertical;
+            }
+
+            .btn-primary {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                background-color: #007bff;
+                border-color: #007bff;
+
+                &:hover {
+                    background-color: #0056b3;
+                    border-color: #0056b3;
+                }
+            }
+        }
+    }
+
+    .alert {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 0.25rem;
+
+        .bi {
+            margin-right: 0.5rem;
+        }
+
+        &.alert-danger {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        &.alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        &.alert-warning {
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+            color: #856404;
+        }
+    }
+}
+
+[hidden] {
+    display: none !important;
+}

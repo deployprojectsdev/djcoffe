@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <div class="card shadow">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Crear Nuevo Cultivo</h2>
+        <form (ngSubmit)="crearCultivo()" #cultivoForm="ngForm">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre del Cultivo</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="cultivo.nombre" required>
+          </div>
+          <div class="mb-3">
+            <label for="fecha_siembra" class="form-label">Fecha de Siembra</label>
+            <input type="date" class="form-control" id="fecha_siembra" name="fecha_siembra" [(ngModel)]="cultivo.fecha_siembra" required>
+          </div>
+          <div class="mb-3">
+            <label for="fecha_cosecha_estimada" class="form-label">Fecha Estimada de Cosecha</label>
+            <input type="date" class="form-control" id="fecha_cosecha_estimada" name="fecha_cosecha_estimada" [(ngModel)]="cultivo.fecha_cosecha_estimada" required>
+          </div>
+          <div class="mb-3">
+            <label for="id_finca" class="form-label">ID de la Finca</label>
+            <input type="text" class="form-control" id="id_finca" name="id_finca" [(ngModel)]="cultivo.id_finca" required>
+          </div>
+          <div class="mb-3">
+            <label for="estado_cultivo" class="form-label">Estado del Cultivo</label>
+            <select class="form-control" id="estado_cultivo" name="estado_cultivo" [(ngModel)]="cultivo.estado_cultivo" required>
+              <option value="activo">Activo</option>
+              <option value="cosechado">Cosechado</option>
+              <option value="en_reposo">En Reposo</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="area_cultivo" class="form-label">Área del Cultivo (m²)</label>
+            <input type="number" class="form-control" id="area_cultivo" name="area_cultivo" [(ngModel)]="cultivo.area_cultivo" required>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary" [disabled]="!cultivoForm.form.valid">Crear Cultivo</button>
+            <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+    <div class="mt-3">
+      <div *ngIf="is_ok" class="alert alert-success" role="alert">
+        Cultivo creado exitosamente. Redirigiendo...
+      </div>
+      <div *ngIf="is_error" class="alert alert-danger" role="alert">
+        Error al crear el cultivo. Por favor, inténtelo de nuevo.
+      </div>
+      <div *ngIf="is_empty" class="alert alert-warning" role="alert">
+        Por favor, complete todos los campos requeridos.
+      </div>
+    </div>
+  </div>
+  

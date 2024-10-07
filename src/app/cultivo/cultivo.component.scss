@@ -1,0 +1,168 @@
+$coffee-brown: #6F4E37;
+$coffee-brown-dark: #5A3E2E;
+$light-coffee: #D2B48C;
+$cream: #FFFDD0;
+
+.container-fluid {
+    padding: 1rem;
+
+    .row {
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+        background-color: $coffee-brown;
+        border-color: $coffee-brown;
+        color: white;
+        font-size: 1rem;
+        padding: 0.75rem;
+        width: 100%;
+        transition: background-color 0.3s ease;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $coffee-brown-dark;
+            border-color: $coffee-brown-dark;
+        }
+    }
+
+    .btn-outline-danger {
+        color: $coffee-brown-dark;
+        border-color: $coffee-brown-dark;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: $light-coffee;
+            border-color: $coffee-brown-dark;
+            color: $coffee-brown-dark;
+        }
+
+        i {
+            margin-left: 0.5rem;
+        }
+    }
+
+    .table {
+        &.table-hover tbody tr:hover {
+            background-color: rgba(111, 78, 55, 0.1); // Usando $coffee-brown con opacidad
+        }
+
+        &.table-bordered {
+            border-color: $light-coffee;
+        }
+
+        th,
+        td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 1rem;
+        }
+
+        thead th {
+            background-color: $coffee-brown;
+            color: white;
+        }
+
+        tbody td {
+            color: $coffee-brown;
+        }
+
+        .btn-outline-primary {
+            color: $coffee-brown;
+            border-color: $coffee-brown;
+            padding: 0.5rem;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $light-coffee;
+                border-color: $coffee-brown-dark;
+                color: $coffee-brown-dark;
+            }
+        }
+    }
+
+    .card {
+        border: 1px solid $light-coffee;
+        border-radius: 10px;
+
+        .card-body {
+            background-color: $cream;
+            padding: 1rem;
+
+            .card-title {
+                color: $coffee-brown;
+                font-weight: 700;
+                font-size: 1.25rem;
+            }
+
+            .card-text {
+                font-size: 1rem;
+                color: $coffee-brown-dark;
+
+                strong {
+                    color: $coffee-brown;
+                }
+            }
+
+            .btn-outline-primary {
+                color: $coffee-brown;
+                border-color: $coffee-brown;
+                padding: 0.5rem;
+                margin-right: 0.5rem;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $light-coffee;
+                    border-color: $coffee-brown-dark;
+                    color: $coffee-brown-dark;
+                }
+
+                i {
+                    margin-right: 0.5rem;
+                }
+            }
+
+            .btn-outline-danger {
+                color: $coffee-brown-dark;
+                border-color: $coffee-brown-dark;
+                padding: 0.5rem;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $light-coffee;
+                    border-color: $coffee-brown-dark;
+                    color: $coffee-brown-dark;
+                }
+
+                i {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        .btn-primary {
+            font-size: 0.875rem;
+        }
+
+        .table {
+            font-size: 0.875rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+        }
+    }
+}

@@ -1,0 +1,102 @@
+$coffee-brown: #6F4E37;
+$coffee-brown-dark: #5A3E2E;
+$light-coffee: #D2B48C;
+$cream: #FFFDD0;
+
+.welcome-container {
+    padding: 2rem;
+    text-align: center;
+    background-color: $cream;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .welcome-title {
+        font-size: 2rem;
+        color: $coffee-brown;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .welcome-subtitle {
+        font-size: 1.25rem;
+        color: $coffee-brown-dark;
+        margin-bottom: 2rem;
+    }
+
+    .steps-title {
+        font-size: 1.75rem;
+        color: $coffee-brown;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+    }
+
+    .steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .step-item {
+            background-color: $light-coffee;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+            h3 {
+                font-size: 1.5rem;
+                color: $coffee-brown;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+            }
+
+            p {
+                font-size: 1rem;
+                color: $coffee-brown-dark;
+                margin-bottom: 1rem;
+            }
+
+            .step-link {
+                font-size: 1rem;
+                color: $coffee-brown;
+                text-decoration: none;
+                display: inline-block;
+                margin-top: 0.5rem;
+                transition: color 0.3s ease;
+
+                i {
+                    margin-right: 0.5rem;
+                }
+
+                &:hover {
+                    color: $coffee-brown-dark;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .welcome-title {
+            font-size: 1.75rem;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.1rem;
+        }
+
+        .steps-title {
+            font-size: 1.5rem;
+        }
+
+        .step-item h3 {
+            font-size: 1.25rem;
+        }
+
+        .step-item p {
+            font-size: 0.95rem;
+        }
+
+        .step-link {
+            font-size: 0.95rem;
+        }
+    }
+}

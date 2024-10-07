@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div class="col-12 col-md-6 mb-2 mb-md-0">
+      <button type="button" class="btn btn-primary w-100" (click)="crearCultivo()">Crear Cultivo</button>
+    </div>
+    <div class="col-12 col-md-6 text-md-end">
+      <button *ngIf="!modoEdicion" title="Modo Edición" class="btn btn-outline-danger" (click)="toggleModoEdicion()">
+        Editar <i class="bi bi-gear-wide-connected"></i>
+      </button>
+      <button *ngIf="modoEdicion" title="Salir modo edición" class="btn btn-outline-danger" (click)="toggleModoEdicion()">
+        <i class="bi bi-x-square-fill"></i> Salir Modo Edición
+      </button>
+    </div>
+  </div>
+
+  <!-- Vista de tabla para pantallas medianas y grandes -->
+  <div class="d-none d-md-block">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped-columns table-bordered border-primary-subtle">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Fecha siembra</th>
+            <th scope="col">Fecha cosecha estimada</th>
+            <th scope="col">Id finca</th>
+            <th scope="col">Estado de cultivo</th>
+            <th scope="col">Área del cultivo</th>
+            <th scope="col" *ngIf="modoEdicion"><i class="bi bi-feather" title="Editar"></i></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cultivo of cultivo">
+            <td>{{cultivo.nombre}}</td>
+            <td>{{cultivo.fecha_siembra}}</td>
+            <td>{{cultivo.fecha_cosecha_estimada}}</td>
+            <td>{{cultivo.id_finca}}</td>
+            <td>{{cultivo.estado_cultivo}}</td>
+            <td>{{cultivo.area_cultivo}} m²</td>
+            <td *ngIf="modoEdicion">
+              <a [routerLink]="['/dashboard/actualizar-cultivo', cultivo.id]" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-pencil"></i> Editar
+              </a>
+              <a [routerLink]="['/dashboard/borrar-cultivo', cultivo.id]" class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash3"></i> Eliminar
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Vista de tarjetas para dispositivos móviles -->
+  <div class="d-md-none">
+    <div class="row row-cols-1 g-4">
+      <div class="col" *ngFor="let cultivo of cultivo">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{cultivo.nombre}}</h5>
+            <p class="card-text">
+              <strong>Fecha siembra:</strong> {{cultivo.fecha_siembra}} <br>
+              <strong>Fecha cosecha estimada:</strong> {{cultivo.fecha_cosecha_estimada}} <br>
+              <strong>Id finca:</strong> {{cultivo.id_finca}} <br>
+              <strong>Estado cultivo:</strong> {{cultivo.estado_cultivo}} <br>
+              <strong>Área cultivo:</strong> {{cultivo.area_cultivo}} m²
+            </p>
+            <a [routerLink]="['/dashboard/actualizar-cultivo', cultivo.id]" class="btn btn-sm btn-outline-primary">
+              <i class="bi bi-pencil"></i> Editar
+            </a>
+            <a [routerLink]="['/dashboard/borrar-cultivo', cultivo.id]" class="btn btn-sm btn-outline-danger">
+              <i class="bi bi-trash3"></i> Eliminar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="bg-login">
+	<div class="wrapper">
+		<div class="logo">
+			<img src="assets/images/logo-img.png" alt="Logo" class="img-fluid">
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="text-center mb-4">
+					<h3>Iniciar Sesión</h3>
+					<p>No tiene cuenta aún? <a href="JavaScript:;" (click)="onSignup()">Regístrese aquí</a></p>
+				</div>
+				<form class="row g-3" >
+					<div class="col-12">
+						<label for="inputCedula" class="form-label">Cédula</label>
+						<input type="number" #identificacionInput class="form-control" id="inputCedula" placeholder="Número de Cédula">
+					</div>
+					<div class="col-12">
+						<label for="inputContrasena" class="form-label">Contraseña</label>
+						<div class="input-group" id="show_hide_password">
+							<input type="password" #contrasenaInput class="form-control" id="inputContrasena" placeholder="Ingrese Contraseña">
+							<a href="javascript:;" (click)="$event.preventDefault()" class="input-group-text bg-transparent">
+								<i class='bx bx-hide'></i>
+							</a>
+						</div>
+					</div>
+					
+					
+					<div class="col-12">
+						<div class="d-grid">
+							<button type="button" (click)="onSubmit()" class="btn btn-primary"><i class="bx bxs-lock-open"></i>Iniciar Sesión</button>
+						</div>
+					</div>
+					<div class="col-12 text-center mt-4">
+						<p class="text-danger">{{ loginError }}</p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

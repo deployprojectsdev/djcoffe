@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Actualizar Finca</h2>
+      <form (ngSubmit)="actualizarFinca()" #fincaForm="ngForm">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="finca.nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="ubicacion" class="form-label">Ubicación</label>
+          <input type="text" class="form-control" id="ubicacion" name="ubicacion" [(ngModel)]="finca.ubicacion" required>
+        </div>
+        <div class="mb-3">
+          <label for="area_total" class="form-label">Área Total</label>
+          <input type="number" class="form-control" id="area_total" name="area_total" [(ngModel)]="finca.area_total" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefono" class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" id="telefono" name="telefono" [(ngModel)]="finca.telefono" required>
+        </div>
+        <div class="mb-3">
+          <label for="observaciones" class="form-label">Observaciones</label>
+          <textarea class="form-control" id="observaciones" name="observaciones" [(ngModel)]="finca.observaciones" rows="3"></textarea>
+        </div>
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-primary" [disabled]="!fincaForm.form.valid">Actualizar Finca</button>
+          <button type="button" class="btn btn-secondary" (click)="goBack()">Volver</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <div *ngIf="is_ok" class="alert alert-success" role="alert">
+      Finca actualizada exitosamente. Redirigiendo...
+    </div>
+    <div *ngIf="is_error" class="alert alert-danger" role="alert">
+      Error al actualizar la finca. Por favor, inténtelo de nuevo.
+    </div>
+    <div *ngIf="is_empty" class="alert alert-warning" role="alert">
+      Por favor, complete todos los campos requeridos.
+    </div>
+  </div>
+</div>

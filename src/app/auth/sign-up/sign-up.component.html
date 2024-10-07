@@ -1,0 +1,56 @@
+<div class="bg-login">
+	<div class="wrapper">
+		<div class="logo">
+			<img src="https://i.ibb.co/vwDDxjQ/LOGO.png" alt="Logo" class="img-fluid">
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="text-center mb-4">
+					<h3>Registro</h3>
+					<p>Ya tiene una cuenta? <a href="JavaScript:;" (click)="onSignIn()">Inicie sesión aquí</a></p>
+				</div>
+				<form class="row g-3" (submit)="crearUsuario($event)">
+					<div class="col-sm-6">
+						<label for="inputFirstName" class="form-label">Nombre</label>
+						<input type="text" class="form-control" id="inputFirstName" placeholder="Jhon">
+					</div>
+					<div class="col-sm-6">
+						<label for="inputLastName" class="form-label">Apellido</label>
+						<input type="text" class="form-control" id="inputLastName" placeholder="Deo">
+					</div>
+					<div class="col-12">
+						<label for="inputCedula" class="form-label">Cédula</label>
+						<input type="text" class="form-control" id="inputCedula" placeholder="Ingrese su cédula">
+					</div>
+					<div class="col-12">
+						<label for="inputEmailAddress" class="form-label">Correo Electrónico</label>
+						<input type="email" class="form-control" id="inputEmailAddress" placeholder="example@user.com">
+					</div>
+					<div class="col-12">
+						<label for="inputPassword" class="form-label">Contraseña</label>
+						<div class="input-group" id="show_hide_password">
+							<input type="password" class="form-control border-end-0" id="inputPassword"
+								placeholder="Ingrese su contraseña">
+							<a href="javascript:;" class="input-group-text bg-transparent"><i
+									class='bx bx-hide'></i></a>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="gridCheck">
+							<label class="form-check-label" for="gridCheck">
+								He leído y acepto los Términos y Condiciones
+							</label>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="d-grid">
+							<button type="submit" class="btn btn-primary"><i
+									class='bx bx-user me-2'></i>Registrar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

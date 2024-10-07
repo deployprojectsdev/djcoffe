@@ -1,0 +1,34 @@
+<div class="analytics-container">
+    <h2>Datos de los Sensores <i class="bi bi-graph-up"></i> </h2>
+
+    <div class="date-filter">
+        <div class="date-input">
+            <label for="start-date">Fecha de inicio:</label>
+            <input type="date" id="start-date" [(ngModel)]="startDate" (change)="onDateChange()">
+        </div>
+        <div class="date-input">
+            <label for="end-date">Fecha de fin:</label>
+            <input type="date" id="end-date" [(ngModel)]="endDate" (change)="onDateChange()">
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-wrapper">
+            <highcharts-chart [Highcharts]="Highcharts" [options]="temperatureChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <div class="chart-wrapper">
+            <highcharts-chart [Highcharts]="Highcharts" [options]="humidityChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <div class="chart-wrapper">
+            <highcharts-chart [Highcharts]="Highcharts" [options]="soilHumidityChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <button type="button" class="btn btn-primary w-100" (click)="crearFinca()">Crear Finca</button>
+        </div>
+        <div class="col-12 col-md-6 text-md-end">
+            <button *ngIf="!modoEdicion" title="Modo Edición" class="btn btn-outline-danger" (click)="toggleModoEdicion()">
+                Editar
+                <i class="bi bi-gear-wide-connected"></i>
+            </button>
+            <button *ngIf="modoEdicion" title="Salir modo edición" class="btn btn-outline-danger" (click)="toggleModoEdicion()">
+                <i class="bi bi-x-square-fill"></i> Salir Modo Edición
+            </button>
+        </div>
+    </div>
+
+    <!-- Vista de tabla para pantallas medianas y grandes -->
+    <div class="d-none d-md-block">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped-columns table-bordered border-primary-subtle">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Ubicación</th>
+                        <th scope="col">Área</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Observaciones</th>
+                        <th scope="col" *ngIf="modoEdicion"><i class="bi bi-feather" title="Editar"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let finca of fincas">
+                        <td>{{ finca.nombre }}</td>
+                        <td>{{ finca.ubicacion }}</td>
+                        <td>{{ finca.area_total }} m²</td>
+                        <td>{{ finca.telefono }}</td>
+                        <td>{{ finca.observaciones }}</td>
+                        <td *ngIf="modoEdicion">
+                            <!-- Cambio del botón a enlace con routerLink -->
+                            <a [routerLink]="['/dashboard/actualizar-finca', finca.id]" class="btn btn-sm btn-outline-primary">
+                                <i class="bi bi-pencil"></i> Editar
+                            </a>
+                            <a [routerLink]="['/dashboard/borrar-finca', finca.id]" class="btn btn-sm btn-outline-primary" ><i class="bi bi-trash3"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Vista de tarjetas para dispositivos móviles -->
+    <div class="d-md-none">
+        <div class="row row-cols-1 g-4">
+            <div class="col" *ngFor="let finca of fincas">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ finca.nombre }}</h5>
+                        <p class="card-text">
+                            <strong>Ubicación:</strong> {{ finca.ubicacion }}<br>
+                            <strong>Área:</strong> {{ finca.area_total }} m²<br>
+                            <strong>Teléfono:</strong> {{ finca.telefono }}<br>
+                            <strong>Observaciones:</strong> {{ finca.observaciones }}
+                        </p>
+                        <!-- Cambio del botón a enlace con routerLink -->
+                        <a [routerLink]="['/dashboard/actualizar-finca', finca.id]" class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-pencil"></i> Editar
+                        </a>
+                        <a [routerLink]="['/dashboard/borrar-finca', finca.id]" class="btn btn-sm btn-outline-danger" ><i class="bi bi-trash3"></i></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

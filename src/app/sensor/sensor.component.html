@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row mb-3">
+      <div class="col-12 col-md-6 mb-2 mb-md-0">
+        <button type="button" class="btn btn-primary w-100" (click)="crearSensor()">Crear Sensor</button>
+      </div>
+      <div class="col-12 col-md-6 text-md-end">
+        <button *ngIf="!modoEdicion" title="Modo Edición" class="btn btn-outline-danger" (click)="toggleModoEdicion()">
+          Editar <i class="bi bi-gear-wide-connected"></i>
+        </button>
+        <button *ngIf="modoEdicion" title="Salir modo edición" class="btn btn-outline-danger" (click)="toggleModoEdicion()">
+          <i class="bi bi-x-square-fill"></i> Salir Modo Edición
+        </button>
+      </div>
+    </div>
+  
+    <!-- Vista de tabla para pantallas medianas y grandes -->
+    <div class="d-none d-md-block">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped-columns table-bordered border-primary-subtle">
+          <thead>
+            <tr>
+              <th scope="col">Tipo</th>
+              <th scope="col">Marca y Modelo</th>
+              <th scope="col">Fecha Instalación</th>
+              <th scope="col">ID de Cultivo</th>
+              <th scope="col" *ngIf="modoEdicion"><i class="bi bi-feather" title="Editar"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sensor of sensor">
+              <td>{{sensor.tipo}}</td>
+              <td>{{sensor.marca_modelo}}</td>
+              <td>{{sensor.fecha_instalacion}}</td>
+              <td>{{sensor.id_cultivo}}</td>
+              <td *ngIf="modoEdicion">
+                <a [routerLink]="['/dashboard/actualizar-sensor', sensor.id]" class="btn btn-sm btn-outline-primary">
+                  <i class="bi bi-pencil"></i> Editar
+                </a>
+                <a [routerLink]="['/dashboard/borrar-sensor', sensor.id]" class="btn btn-sm btn-outline-danger">
+                  <i class="bi bi-trash3"></i> Eliminar
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Vista de tarjetas para dispositivos móviles -->
+    <div class="d-md-none">
+      <div class="row row-cols-1 g-4">
+        <div class="col" *ngFor="let sensor of sensor">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{sensor.tipo}}</h5>
+              <p class="card-text">
+                <strong>Marca y Modelo:</strong> {{sensor.marca_modelo}} <br>
+                <strong>Fecha Instalación:</strong> {{sensor.fecha_instalacion}} <br>
+                <strong>ID de Cultivo:</strong> {{sensor.id_cultivo}}
+              </p>
+              <a [routerLink]="['/dashboard/actualizar-sensor', sensor.id]" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-pencil"></i> Editar
+              </a>
+              <a [routerLink]="['/dashboard/borrar-sensor', sensor.id]" class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash3"></i> Eliminar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
